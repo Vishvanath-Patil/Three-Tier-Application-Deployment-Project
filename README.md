@@ -51,7 +51,8 @@ eksctl create cluster --name three-tier-cluster --region us-west-2 --node-type t
 aws eks update-kubeconfig --region us-west-2 --name three-tier-cluster
 kubectl get nodes
 ```
-### Note : make sure replace by your region and clustername
+### Note :
+make sure replace by your region and clustername
 
 ### Step 8: Run Manifests
 ``` shell
@@ -69,7 +70,8 @@ eksctl utils associate-iam-oidc-provider --region=us-west-2 --cluster=three-tier
 eksctl create iamserviceaccount --cluster=three-tier-cluster --namespace=kube-system --name=aws-load-balancer-controller --role-name AmazonEKSLoadBalancerControllerRole --attach-policy-arn=arn:aws:iam::626072240565:policy/AWSLoadBalancerControllerIAMPolicy --approve --region=us-west-2
 ```
 
-### Note : Replace AWS Account ID (626072240565), AmazonEKSLoadBalancerControllerRole, AWSLoadBalancerControllerIAMPolicy, and region 
+### Note : 
+Replace AWS Account ID (626072240565), AmazonEKSLoadBalancerControllerRole, AWSLoadBalancerControllerIAMPolicy, and region 
 
 ### Step 10: Deploy AWS Load Balancer Controller
 ``` shell
