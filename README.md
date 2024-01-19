@@ -10,7 +10,7 @@
 - Generate Security Credentials: Access Key and Secret Access Key.
 
 ### Step 2: EC2 Setup
-- Launch an 'Ubuntu (t2.micro)' instance in your favourite region (eg. region `us-west-2`).
+- Launch an Ubuntu (t2.micro) instance in your favourite region (eg. region `us-west-2`).
 - SSH into the instance from your local machine.
 
 ### Step 3: Install AWS CLI v2
