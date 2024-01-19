@@ -14,19 +14,14 @@
 - Clone your application's code repository onto the EC2 instance:
 
 ``` shell
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-sudo apt install unzip
-unzip awscliv2.zip
-sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin --update
-aws configure
+git clone https://github.com/Vishvanath-Patil/Three-Tier-Application-Deployment-Project.git
 ```
 
-
-### Step 2: IAM Configuration
+### Step 3: IAM Configuration
 - Create a user `eks-admin` with `AdministratorAccess`.
 - Generate Security Credentials: Access Key and Secret Access Key.
   
-### Step 3: Install AWS CLI v2
+### Step 4: Install AWS CLI v2
 ``` shell
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 sudo apt install unzip
@@ -35,7 +30,7 @@ sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin --update
 aws configure
 ```
 
-### Step 4: Install Docker
+### Step 5: Install Docker
 ``` shell
 sudo apt-get update
 sudo apt install docker.io
@@ -43,7 +38,7 @@ docker ps
 sudo chown $USER /var/run/docker.sock
 ```
 
-### Step 5: Install kubectl
+### Step 6: Install kubectl
 ``` shell
 curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
 chmod +x ./kubectl
@@ -51,14 +46,14 @@ sudo mv ./kubectl /usr/local/bin
 kubectl version --short --client
 ```
 
-### Step 6: Install eksctl
+### Step 7: Install eksctl
 ``` shell
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 ```
 
-### Step 7: Setup EKS Cluster
+### Step 8: Setup EKS Cluster
 ``` shell
 eksctl create cluster --name three-tier-cluster --region us-west-2 --node-type t2.medium --nodes-min 2 --nodes-max 2
 aws eks update-kubeconfig --region us-west-2 --name three-tier-cluster
@@ -67,7 +62,7 @@ kubectl get nodes
 ### Note :
 make sure replace by your region and clustername
 
-### Step 8: Run Manifests
+### Step 9: Run Manifests
 ``` shell
 kubectl create namespace workshop
 kubectl config set-context --current --namespace workshop
@@ -75,7 +70,7 @@ kubectl apply -f .
 kubectl delete -f .
 ```
 
-### Step 9: Install AWS Load Balancer
+### Step 10: Install AWS Load Balancer
 ``` shell
 curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
 aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json
@@ -86,7 +81,7 @@ eksctl create iamserviceaccount --cluster=three-tier-cluster --namespace=kube-sy
 ### Note : 
 Replace AWS Account ID (626072240565), AmazonEKSLoadBalancerControllerRole, AWSLoadBalancerControllerIAMPolicy, and region 
 
-### Step 10: Deploy AWS Load Balancer Controller
+### Step 11: Deploy AWS Load Balancer Controller
 ``` shell
 sudo snap install helm --classic
 helm repo add eks https://aws.github.io/eks-charts
