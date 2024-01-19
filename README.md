@@ -77,7 +77,7 @@ make sure replace by your region and clustername
 
 ###Note :- should RUN these commands inside `Dockerfile` directory 
 
-### Step 9: Run Manifests
+### Step 10: Run Manifests
 ``` shell
 kubectl create namespace workshop
 kubectl config set-context --current --namespace workshop
@@ -85,7 +85,7 @@ kubectl apply -f .
 kubectl delete -f .
 ```
 
-### Step 10: Install AWS Load Balancer
+### Step 11: Install AWS Load Balancer
 ``` shell
 curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
 aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json
@@ -96,7 +96,7 @@ eksctl create iamserviceaccount --cluster=three-tier-cluster --namespace=kube-sy
 ### Note : 
 Replace AWS Account ID (626072240565), AmazonEKSLoadBalancerControllerRole, AWSLoadBalancerControllerIAMPolicy, and region 
 
-### Step 11: Deploy AWS Load Balancer Controller
+### Step 12: Deploy AWS Load Balancer Controller
 ``` shell
 sudo snap install helm --classic
 helm repo add eks https://aws.github.io/eks-charts
