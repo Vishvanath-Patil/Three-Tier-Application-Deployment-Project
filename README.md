@@ -5,14 +5,14 @@
 
 ## Steps 
 
-### Step 1: IAM Configuration
-- Create a user `eks-admin` with `AdministratorAccess`.
-- Generate Security Credentials: Access Key and Secret Access Key.
-
-### Step 2: EC2 Setup
+### Step 1: EC2 Setup
 - Launch an Ubuntu (t2.micro) instance in your favourite region (eg. region `us-west-2`).
 - SSH into the instance from your local machine.
 
+### Step 2: IAM Configuration
+- Create a user `eks-admin` with `AdministratorAccess`.
+- Generate Security Credentials: Access Key and Secret Access Key.
+  
 ### Step 3: Install AWS CLI v2
 ``` shell
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
