@@ -10,7 +10,7 @@
 - Generate Security Credentials: Access Key and Secret Access Key.
 
 ### Step 2: EC2 Setup
-- Launch an Ubuntu instance in your favourite region (eg. region `us-west-2`).
+- Launch an Ubuntu (t2.micro) instance in your favourite region (eg. region `us-west-2`).
 - SSH into the instance from your local machine.
 
 ### Step 3: Install AWS CLI v2
@@ -51,6 +51,7 @@ eksctl create cluster --name three-tier-cluster --region us-west-2 --node-type t
 aws eks update-kubeconfig --region us-west-2 --name three-tier-cluster
 kubectl get nodes
 ```
+### Note : make sure replace by your region and clustername
 
 ### Step 8: Run Manifests
 ``` shell
@@ -67,6 +68,8 @@ aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-
 eksctl utils associate-iam-oidc-provider --region=us-west-2 --cluster=three-tier-cluster --approve
 eksctl create iamserviceaccount --cluster=three-tier-cluster --namespace=kube-system --name=aws-load-balancer-controller --role-name AmazonEKSLoadBalancerControllerRole --attach-policy-arn=arn:aws:iam::626072240565:policy/AWSLoadBalancerControllerIAMPolicy --approve --region=us-west-2
 ```
+
+### Note : Replace AWS Account ID (626072240565), AmazonEKSLoadBalancerControllerRole, AWSLoadBalancerControllerIAMPolicy, and region 
 
 ### Step 10: Deploy AWS Load Balancer Controller
 ``` shell
