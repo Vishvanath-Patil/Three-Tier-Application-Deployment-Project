@@ -63,6 +63,7 @@ kubectl get nodes
 make sure replace by your region and clustername
 
 ### Step 9: Create ECR Repository
+### Prerequisites to Push docker image to ECR Repo is `aws configure` this has done in Step.4
 #### Step 9.1 : Search ECR and Click on Get Started
 ![image](https://github.com/Vishvanath-Patil/Three-Tier-Application-Deployment-Project/assets/130968991/1225fd9d-f3ab-40b5-89e7-25c4c6ce6e6e)
 #### Step 9.2 : Choose Repository type `Public` and fill Repository Name `worokshop/three-tier-backend` then Click on Create Repository
