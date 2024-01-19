@@ -62,6 +62,20 @@ kubectl get nodes
 ### Note :
 make sure replace by your region and clustername
 
+### Step 9: Create ECR Repository
+#### Step 9.1 : Search ECR and Click on Get Started
+![image](https://github.com/Vishvanath-Patil/Three-Tier-Application-Deployment-Project/assets/130968991/1225fd9d-f3ab-40b5-89e7-25c4c6ce6e6e)
+#### Step 9.2 : Choose Repository type `Public` and fill Repository Name `worokshop/three-tier-backend` then Click on Create Repository
+![image](https://github.com/Vishvanath-Patil/Three-Tier-Application-Deployment-Project/assets/130968991/efcaa18a-2cd3-453e-baf0-149a9a4e15dc)
+#### Step 9.3 : Then Open `worokshop/three-tier-backend` and click on View Push Commands 
+![image](https://github.com/Vishvanath-Patil/Three-Tier-Application-Deployment-Project/assets/130968991/986d5d17-ca41-4066-95a0-4486a41db705)
+#### Step 9.4 : Click on View Push Commands
+![image](https://github.com/Vishvanath-Patil/Three-Tier-Application-Deployment-Project/assets/130968991/0cc09b8f-ed20-4368-8828-55798189d718)
+#### Step 9.5 : Use following Commands to Build Docker Image and Push to ECR Repository 
+![image](https://github.com/Vishvanath-Patil/Three-Tier-Application-Deployment-Project/assets/130968991/914ff518-3433-479f-bc92-3bf48da6ce43)
+
+###Note :- should RUN these commands inside `Dockerfile` directory 
+
 ### Step 9: Run Manifests
 ``` shell
 kubectl create namespace workshop
