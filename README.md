@@ -9,6 +9,19 @@
 - Launch an Ubuntu (t2.micro) instance in your favourite region (eg. region `us-west-2`).
 - SSH into the instance from your local machine.
 
+### Step 2: Clone the Code:
+- Update all the packages and then clone the code.
+- Clone your application's code repository onto the EC2 instance:
+
+``` shell
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin --update
+aws configure
+```
+
+
 ### Step 2: IAM Configuration
 - Create a user `eks-admin` with `AdministratorAccess`.
 - Generate Security Credentials: Access Key and Secret Access Key.
